@@ -13,7 +13,7 @@ def divide(a, b):
     return a / b
 
 if __name__ == "__main__":
-    x, y = 20, 15
+    x, y = 200, 150
     print(f"Addition: {add(x, y)}")
     print(f"Subtraction: {subtract(x, y)}")
     print(f"Multiplication: {multiply(x, y)}")
