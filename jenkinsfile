@@ -1,39 +1,40 @@
 pipeline {
     agent any
-
+ 
     triggers {
-        // Trigger build when GitHub webhook sends a push event
         githubPush()
     }
-
+ 
     stages {
+ 
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/1907CharanReddy/pipeline1.git'
+                git branch: 'master',
+                url: 'https://github.com/1907CharanReddy/pipeline1.git'
             }
         }
-
+ 
         stage('Build') {
             steps {
                 sh 'echo "Building Python project..."'
             }
         }
-
+ 
         stage('Test') {
             steps {
                 sh 'python3 app.py'
             }
         }
+ 
     }
-
+ 
     post {
         success {
             echo 'Build succeeded!'
         }
+ 
         failure {
             echo 'Build failed!'
         }
     }
 }
-
